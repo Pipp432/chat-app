@@ -16,12 +16,21 @@ socket.on("receive-room-id", (roomID) => {
 });
 socket.on("receive-message", (message, clientID) => {
 	connectId = clientID;
+	chatBox.innerHTML += `<div class='enter-message'><h4>${clientID} has entered the chat</h4></div>`;
 	chatBox.innerHTML += `<h4 class='message'>${clientID}: ${message}</h4>`;
 });
 
 messageInput.addEventListener("change", (event) => {
 	message = event.target.value;
 });
+messageInput.addEventListener("keypress", function (event) {
+	if (event.key === "Enter") {
+		messageInput.blur();
+		event.preventDefault();
+		sendBtn.click();
+	}
+});
+
 sendBtn.addEventListener("click", () => {
 	console.log(message);
 	if (connectId) {
