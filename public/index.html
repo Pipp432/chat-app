@@ -4,12 +4,19 @@
   
 <body>
     <h1 class="header">Chat app</h1>
+    <h3 class="client-id" id="room-id">Your room ID:</h3>
+    <div class="chat-box"></div>
     <div class="input-container">
-        <input type="text" autocomplete="off" class="message-input"><button class="message-btn">Send</button>
+        <input type="text" autocomplete="off" class="message-input" id="message-input"><button class="message-btn" id="message-btn">Send</button>
 
     </div>
-    
+    <div class="room-container">
 
+        <input type="text" autocomplete="off" class="room-input" id="room-input"><button class="room-btn" id="room-btn">Connect</button>
+       
+    </div>
+    
 </body>
+<script src="/socket.io/socket.io.js"></script>
 <script src="client.js"></script>
 </html>
