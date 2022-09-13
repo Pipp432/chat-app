@@ -40,7 +40,7 @@
 }
 .message-btn {
 	width: 100px;
-	height: 56px;
+	height: 46px;
 }
 .room-input {
 	width: 100px;
@@ -58,4 +58,7 @@
 	position: absolute;
 	left: 2%;
 	top: 5%;
+}
+.message {
+	margin-left: 10px;
 }

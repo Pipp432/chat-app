@@ -21,6 +21,15 @@ io.on("connection", (socket) => {
 	socket.emit("receive-room-id", roomID);
 	console.log("a user connected");
 
+	socket.on("send-message", (message, roomID, clientID) => {
+		socket.to(roomID).emit("receive-message", message, clientID);
+	});
+
+	socket.on("connect-to-room", (connectId, clientID) => {
+		console.log(`connected: ${connectId} with ${clientID}`);
+		socket.join(connectId);
+	});
+
 	socket.on("disconnect", () => {
 		console.log("user disconnected");
 	});
